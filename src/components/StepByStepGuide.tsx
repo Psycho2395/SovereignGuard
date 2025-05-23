@@ -1,11 +1,10 @@
-
 import {
   User,
   ShieldCheck,
   FileLock,
   LayoutDashboard,
   Plug,
-  Robot,
+  Bot,
   Sparkles,
   CheckCircle2,
   CircleDot,
@@ -79,7 +78,7 @@ const coreFeatures = [
     bg: "from-[#f2fce2] to-[#d6bcfa]",
   },
   {
-    icon: Robot,
+    icon: Bot,
     title: "6. Optional AI Assistant",
     desc: "Get personalized, secure answers about your identity status.",
     bullets: [
@@ -198,4 +197,3 @@ const StepByStepGuide = () => (
 );
 
 export default StepByStepGuide;
-
