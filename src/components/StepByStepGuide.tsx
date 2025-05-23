@@ -186,7 +186,7 @@ const StepByStepGuide = () => {
     >
       {/* Hero Header */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 mb-8">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div className="absolute inset-0 opacity-20"></div>
         <div className="relative z-10 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500">
@@ -389,7 +389,7 @@ const StepByStepGuide = () => {
         </div>
 
         {/* Advanced Features Section */}
-        <div className="mt-16 pt-8 border-t-2 border-dashed border-gradient-to-r from-purple-400 to-pink-400 relative">
+        <div className="mt-16 pt-8 border-t-2 border-dashed border-purple-400 relative">
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex items-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 px-6 py-3 rounded-full shadow-lg">
             <Sparkles className="text-white mr-3" size={28} />
             <span className="font-bold text-xl text-white">🌟 Advanced Features</span>
@@ -400,8 +400,7 @@ const StepByStepGuide = () => {
             {optionalAdvanced.map((adv, idx) => (
               <div
                 key={adv.label}
-                className={`group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br ${adv.color} text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-fade-in`}
-                style={{ animationDelay: `${idx * 0.1}s` }}
+                className={`group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br ${adv.color} text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
               >
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="relative z-10 flex gap-4 items-start">
