@@ -8,6 +8,10 @@ import AIAssistant from "./advanced/AIAssistant";
 import WorldClassFeatures from "./WorldClassFeatures";
 import BlockchainAnalytics from "./advanced/BlockchainAnalytics";
 import BiometricAuth from "./advanced/BiometricAuth";
+import AuthenticationSystem from "./advanced/AuthenticationSystem";
+import NetworkMonitoring from "./advanced/NetworkMonitoring";
+import UserManagement from "./advanced/UserManagement";
+import SettingsPanel from "./advanced/SettingsPanel";
 
 const getRandomStatus = () => {
   const risk = Math.floor( Math.random() * 90 + 10 );
@@ -24,7 +28,7 @@ const Dashboard = () => {
   const [did, setDid] = useState<string | null>(null);
   const [identityFrozen, setFrozen] = useState(false);
   const [risk, setRisk] = useState(() => getRandomStatus());
-  const [activeTab, setActiveTab] = useState<'overview' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'credentials' | 'ai'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'credentials' | 'ai' | 'settings'>('overview');
   const [alerts, setAlerts] = useState([
     { type: "AI Anomaly", desc: "Unusual login detected", ts: "1 min ago", code: "warning" },
     { type: "Phishing Attempt", desc: "Possible phishing link accessed", ts: "3 min ago", code: "error" },
@@ -71,8 +75,12 @@ const Dashboard = () => {
     { id: 'security', label: 'Security', icon: '🛡️' },
     { id: 'blockchain', label: 'Blockchain', icon: '⛓️' },
     { id: 'biometric', label: 'Biometric', icon: '👁️' },
+    { id: 'auth', label: 'Authentication', icon: '🔐' },
+    { id: 'network', label: 'Network', icon: '🌐' },
+    { id: 'users', label: 'User Management', icon: '👥' },
     { id: 'credentials', label: 'Credentials', icon: '🏆' },
-    { id: 'ai', label: 'AI Assistant', icon: '🤖' }
+    { id: 'ai', label: 'AI Assistant', icon: '🤖' },
+    { id: 'settings', label: 'Settings', icon: '⚙️' }
   ];
 
   return (
@@ -220,8 +228,12 @@ const Dashboard = () => {
       {activeTab === 'security' && <SecurityDashboard />}
       {activeTab === 'blockchain' && <BlockchainAnalytics />}
       {activeTab === 'biometric' && <BiometricAuth />}
+      {activeTab === 'auth' && <AuthenticationSystem />}
+      {activeTab === 'network' && <NetworkMonitoring />}
+      {activeTab === 'users' && <UserManagement />}
       {activeTab === 'credentials' && <ZkpCredentialManager did={did} />}
       {activeTab === 'ai' && <AIAssistant />}
+      {activeTab === 'settings' && <SettingsPanel />}
     </div>
   );
 };
