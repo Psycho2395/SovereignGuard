@@ -28,7 +28,7 @@ const Dashboard = () => {
   const [did, setDid] = useState<string | null>(null);
   const [identityFrozen, setFrozen] = useState(false);
   const [risk, setRisk] = useState(() => getRandomStatus());
-  const [activeTab, setActiveTab] = useState<'overview' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'credentials' | 'ai' | 'settings'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'auth' | 'network' | 'users' | 'credentials' | 'ai' | 'settings'>('overview');
   const [alerts, setAlerts] = useState([
     { type: "AI Anomaly", desc: "Unusual login detected", ts: "1 min ago", code: "warning" },
     { type: "Phishing Attempt", desc: "Possible phishing link accessed", ts: "3 min ago", code: "error" },
