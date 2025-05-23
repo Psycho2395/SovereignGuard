@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Check, Lock, LockOpen, AlertTriangle } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -6,6 +5,9 @@ import ZkpCredentialCard from "./ZkpCredentialCard";
 import SecurityDashboard from "./advanced/SecurityDashboard";
 import ZkpCredentialManager from "./advanced/ZkpCredentialManager";
 import AIAssistant from "./advanced/AIAssistant";
+import WorldClassFeatures from "./WorldClassFeatures";
+import BlockchainAnalytics from "./advanced/BlockchainAnalytics";
+import BiometricAuth from "./advanced/BiometricAuth";
 
 const getRandomStatus = () => {
   const risk = Math.floor( Math.random() * 90 + 10 );
@@ -22,7 +24,7 @@ const Dashboard = () => {
   const [did, setDid] = useState<string | null>(null);
   const [identityFrozen, setFrozen] = useState(false);
   const [risk, setRisk] = useState(() => getRandomStatus());
-  const [activeTab, setActiveTab] = useState<'overview' | 'security' | 'credentials' | 'ai'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'credentials' | 'ai'>('overview');
   const [alerts, setAlerts] = useState([
     { type: "AI Anomaly", desc: "Unusual login detected", ts: "1 min ago", code: "warning" },
     { type: "Phishing Attempt", desc: "Possible phishing link accessed", ts: "3 min ago", code: "error" },
@@ -65,7 +67,10 @@ const Dashboard = () => {
 
   const tabItems = [
     { id: 'overview', label: 'Overview', icon: '📊' },
+    { id: 'worldclass', label: 'World-Class', icon: '🏆' },
     { id: 'security', label: 'Security', icon: '🛡️' },
+    { id: 'blockchain', label: 'Blockchain', icon: '⛓️' },
+    { id: 'biometric', label: 'Biometric', icon: '👁️' },
     { id: 'credentials', label: 'Credentials', icon: '🏆' },
     { id: 'ai', label: 'AI Assistant', icon: '🤖' }
   ];
@@ -76,7 +81,7 @@ const Dashboard = () => {
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
         <div>
           <h2 className="text-3xl font-bold mb-1">SovereignGuard Dashboard</h2>
-          <p className="text-sm text-gray-500">Advanced self-sovereign identity platform on BNB Smart Chain</p>
+          <p className="text-sm text-gray-500">🏆 World-class self-sovereign identity platform on BNB Smart Chain</p>
         </div>
         <button
           className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-lg"
@@ -211,7 +216,10 @@ const Dashboard = () => {
         </>
       )}
 
+      {activeTab === 'worldclass' && <WorldClassFeatures />}
       {activeTab === 'security' && <SecurityDashboard />}
+      {activeTab === 'blockchain' && <BlockchainAnalytics />}
+      {activeTab === 'biometric' && <BiometricAuth />}
       {activeTab === 'credentials' && <ZkpCredentialManager did={did} />}
       {activeTab === 'ai' && <AIAssistant />}
     </div>
