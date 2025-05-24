@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Plus, Chain, CheckCircle, AlertTriangle, ExternalLink, Copy, Shield } from 'lucide-react';
+import { Plus, Link, CheckCircle, AlertTriangle, ExternalLink, Copy, Shield } from 'lucide-react';
 import { useMultiChainDid } from '../../hooks/useMultiChainDid';
 import { useEnhancedCredentials } from '../../hooks/useEnhancedCredentials';
 import { useOptimizedZkp } from '../../hooks/useOptimizedZkp';
@@ -117,7 +116,7 @@ const MultiChainIdentityManager = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
         <h2 className="text-2xl font-bold mb-2 flex items-center gap-3">
-          <Chain className="w-6 h-6" />
+          <Link className="w-6 h-6" />
           Multi-Chain Identity Manager
         </h2>
         <p className="text-blue-100">Manage your decentralized identities across multiple blockchains</p>
