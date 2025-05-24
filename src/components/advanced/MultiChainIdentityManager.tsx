@@ -198,7 +198,7 @@ const MultiChainIdentityManager = () => {
             <h3 className="text-lg font-semibold mb-4">Your DIDs</h3>
             {dids.length === 0 ? (
               <div className="text-center py-8">
-                <Chain className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+                <Link className="w-12 h-12 text-gray-300 mx-auto mb-3" />
                 <p className="text-gray-500">No DIDs created yet. Create your first one above!</p>
               </div>
             ) : (
