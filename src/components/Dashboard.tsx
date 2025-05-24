@@ -13,6 +13,10 @@ import NetworkMonitoring from "./advanced/NetworkMonitoring";
 import UserManagement from "./advanced/UserManagement";
 import SettingsPanel from "./advanced/SettingsPanel";
 import MultiChainIdentityManager from "./advanced/MultiChainIdentityManager";
+import SelectiveDisclosureManager from "./advanced/SelectiveDisclosureManager";
+import MpcKeyManager from "./advanced/MpcKeyManager";
+import PasswordlessAuthManager from "./advanced/PasswordlessAuthManager";
+import DecentralizedStorageManager from "./advanced/DecentralizedStorageManager";
 
 const getRandomStatus = () => {
   const risk = Math.floor( Math.random() * 90 + 10 );
@@ -29,7 +33,7 @@ const Dashboard = () => {
   const [did, setDid] = useState<string | null>(null);
   const [identityFrozen, setFrozen] = useState(false);
   const [risk, setRisk] = useState(() => getRandomStatus());
-  const [activeTab, setActiveTab] = useState<'overview' | 'multichain' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'auth' | 'network' | 'users' | 'credentials' | 'ai' | 'settings'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'multichain' | 'worldclass' | 'security' | 'blockchain' | 'biometric' | 'auth' | 'network' | 'users' | 'credentials' | 'ai' | 'settings' | 'disclosure' | 'mpc' | 'passwordless' | 'storage'>('overview');
   const [alerts, setAlerts] = useState([
     { type: "AI Anomaly", desc: "Unusual login detected", ts: "1 min ago", code: "warning" },
     { type: "Phishing Attempt", desc: "Possible phishing link accessed", ts: "3 min ago", code: "error" },
@@ -73,6 +77,10 @@ const Dashboard = () => {
   const tabItems = [
     { id: 'overview', label: 'Overview', icon: '📊' },
     { id: 'multichain', label: 'Multi-Chain Identity', icon: '🔗' },
+    { id: 'disclosure', label: 'Selective Disclosure', icon: '👁️' },
+    { id: 'mpc', label: 'MPC Keys', icon: '🔑' },
+    { id: 'passwordless', label: 'Passwordless Auth', icon: '🔐' },
+    { id: 'storage', label: 'IPFS Storage', icon: '💾' },
     { id: 'worldclass', label: 'World-Class', icon: '🏆' },
     { id: 'security', label: 'Security', icon: '🛡️' },
     { id: 'blockchain', label: 'Blockchain', icon: '⛓️' },
@@ -227,6 +235,10 @@ const Dashboard = () => {
       )}
 
       {activeTab === 'multichain' && <MultiChainIdentityManager />}
+      {activeTab === 'disclosure' && <SelectiveDisclosureManager />}
+      {activeTab === 'mpc' && <MpcKeyManager />}
+      {activeTab === 'passwordless' && <PasswordlessAuthManager />}
+      {activeTab === 'storage' && <DecentralizedStorageManager />}
       {activeTab === 'worldclass' && <WorldClassFeatures />}
       {activeTab === 'security' && <SecurityDashboard />}
       {activeTab === 'blockchain' && <BlockchainAnalytics />}
