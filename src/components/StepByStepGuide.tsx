@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   User,
@@ -191,9 +190,6 @@ const StepByStepGuide = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500">
               <Trophy className="w-8 h-8 text-white" />
-            </div>
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-white font-bold">
-              BNB HACKATHON 2024
             </div>
             <div className="p-3 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500">
               <Rocket className="w-8 h-8 text-white" />
